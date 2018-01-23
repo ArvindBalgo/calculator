@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            //var s = today.getSeconds();
+            var am_pm = "AM";
+
+            m = checkTime(m);
+            if(h >= 12) {
+                am_pm = "PM";
+            }
+            //s = checkTime(s);
+
+            document.getElementById('clock').innerHTML = h + ":" + m +" "+am_pm;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+</head>
+<body onload="startTime()">
+    <div id="calculator">
+        <div class="header">
+            <div class="float_left">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <span class="txt_font">AT&T</span>
+                <span class="txt_font">LTE</span>
+            </div>
+            <span id="clock"></span>
+            <div class="float_right">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                <i class="fa fa-unlock" aria-hidden="true"></i>
+                <span>88 %</span>
+                <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div>
+            <input>
+        </div>
+        <div>
+            <!-- Row 0 -->
+            <button class="btn btn_main float_left_half btn_orange">DEL</button>
+            <button class="btn btn_main float_left_half btn_orange">CLEAR</button>
+            <!-- Row 1 -->
+            <button class="btn float_left_quarter btn_grey">C</button>
+            <button class="btn float_left_quarter btn_grey">+/-</button>
+            <button class="btn float_left_quarter btn_grey">%</button>
+            <button class="btn float_left_quarter btn_orange">/</button>
+            <!-- Row 2-->
+            <button class="btn float_left_quarter btn_grey">7</button>
+            <button class="btn float_left_quarter btn_grey">8</button>
+            <button class="btn float_left_quarter btn_grey">9</button>
+            <button class="btn float_left_quarter btn_orange">X</button>
+            <!-- Row 3-->
+            <button class="btn float_left_quarter btn_grey">4</button>
+            <button class="btn float_left_quarter btn_grey">5</button>
+            <button class="btn float_left_quarter btn_grey">6</button>
+            <button class="btn float_left_quarter btn_orange">-</button>
+            <!-- Row 4-->
+            <button class="btn float_left_quarter btn_grey">1</button>
+            <button class="btn float_left_quarter btn_grey">2</button>
+            <button class="btn float_left_quarter btn_grey">3</button>
+            <button class="btn float_left_quarter btn_orange">+</button>
+            <!-- Row 5-->
+            <button class="btn float_left_half btn_grey">0</button>
+            <button class="btn float_left_quarter btn_grey">.</button>
+            <button class="btn float_left_quarter btn_orange">=</button>
+        </div>
+    </div>
+</body>
+</html>
